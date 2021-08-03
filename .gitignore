@@ -33,6 +33,5 @@ hs_err_pid*
 
 HELP.md
 target/
-.mvn/
 .settings/
 /bin
