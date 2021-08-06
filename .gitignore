@@ -35,3 +35,4 @@ HELP.md
 target/
 .settings/
 /bin
+/src/test
