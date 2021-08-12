@@ -24,10 +24,12 @@ public class ProjectNumber {
 	private int id;
 	
 	@Column(unique=true)
-	private int mainProject;
+	private int mainNumber;
 	
-	private List<Integer> subProject = new ArrayList<>();
+	//private List<ProjectNumber> subNumber = new ArrayList<>();
 	
-	@OneToOne
+	@OneToOne (mappedBy = "projectNumber")
 	private Project project;
+	
+	public ProjectNumber() {	}
 }

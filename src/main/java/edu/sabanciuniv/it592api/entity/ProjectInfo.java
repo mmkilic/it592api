@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -34,4 +35,8 @@ public class ProjectInfo {
     public LocalDateTime drwaingReleaseDate;
     public LocalDateTime createDate;
     
+    @OneToOne (mappedBy = "projectInfo")
+	private Project project;
+    
+    public ProjectInfo() {	}
 }

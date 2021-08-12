@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import edu.sabanciuniv.it592api.enums.Departments;
 import edu.sabanciuniv.it592api.enums.Roles;
@@ -26,13 +29,35 @@ public class User {
 	private String sesaNo;
 	private String firstName;
 	private String lastName;
+	@Transient
+	@Getter
 	private String fullName;
 	private String email;
 	private String password;
+	@Enumerated(EnumType.STRING)
 	private Roles role;
+	@Enumerated(EnumType.STRING)
 	private Departments department;
-	private User manager;
+	//private User manager;
 	
-	@OneToMany
-	private List<Project> projects = new ArrayList<>();
+	@OneToMany(mappedBy = "gaElectDesigner")
+	private List<Project> projectsGaElect = new ArrayList<>();
+	@OneToMany(mappedBy = "gaMechDesigner")
+	private List<Project> projectsGaMech = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectGaControler = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectBomElect = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectBomWinding = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectBomMech = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectBomControl = new ArrayList<>();
+	@OneToMany(mappedBy = "gaControlerDesigner")
+	private List<Project> projectCreator = new ArrayList<>();
+	
+	public User() {
+		fullName = firstName + " " + lastName;
+	}
 }

@@ -12,5 +12,7 @@ public interface IProjectRepository {
 	public Project findById(int id);
 	public Project findByNumber(ProjectNumber prjNumber);
 	public List<Project> findByUser(User user);
+	public List<Project> findByProjectUser(User user);
+	public List<Project> findByController(User user);
 	
 }
