@@ -1,17 +1,25 @@
 package edu.sabanciuniv.it592api.entity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import edu.sabanciuniv.it592api.enums.Departments;
 import edu.sabanciuniv.it592api.enums.Roles;
@@ -26,11 +34,11 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String sesaNo;
+	@Column(unique=true)
+	private String sesa;
 	private String firstName;
 	private String lastName;
 	@Transient
-	@Getter
 	private String fullName;
 	private String email;
 	private String password;
@@ -38,26 +46,49 @@ public class User {
 	private Roles role;
 	@Enumerated(EnumType.STRING)
 	private Departments department;
-	//private User manager;
 	
+	@ManyToOne(cascade={CascadeType.ALL})
+    @JoinColumn(name="manager_id")
+    private User manager;
+
+	@JsonIgnore
+    @OneToMany(mappedBy="manager")
+    private Set<User> subordinates = new HashSet<User>();
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaElectDesigner")
 	private List<Project> projectsGaElect = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaMechDesigner")
 	private List<Project> projectsGaMech = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectGaControler = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomElect = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomWinding = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomMech = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomControl = new ArrayList<>();
+	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectCreator = new ArrayList<>();
 	
-	public User() {
-		fullName = firstName + " " + lastName;
+	
+	public User() {	}
+	
+	public User(int id) {
+		this.id = id;
+	}
+	
+	
+	public String getFullName() {
+		return firstName + " " + lastName;
 	}
 }

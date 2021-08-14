@@ -9,5 +9,5 @@ public class It592apiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(It592apiApplication.class, args);
 	}
-
+	
 }
