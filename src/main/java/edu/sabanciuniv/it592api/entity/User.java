@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -50,10 +51,12 @@ public class User {
 	@ManyToOne(cascade={CascadeType.ALL})
     @JoinColumn(name="manager_id")
     private User manager;
-
 	@JsonIgnore
     @OneToMany(mappedBy="manager")
     private Set<User> subordinates = new HashSet<User>();
+	
+	@OneToOne (mappedBy = "projectManger")
+	private ProjectInfo projectInfo;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "gaElectDesigner")
@@ -67,9 +70,6 @@ public class User {
 	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomElect = new ArrayList<>();
-	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
-	private List<Project> projectBomWinding = new ArrayList<>();
 	@JsonIgnore
 	@OneToMany(mappedBy = "gaControlerDesigner")
 	private List<Project> projectBomMech = new ArrayList<>();

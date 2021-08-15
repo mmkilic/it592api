@@ -1,5 +1,6 @@
 package edu.sabanciuniv.it592api.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import edu.sabanciuniv.it592api.enums.Statuses;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,68 +34,86 @@ public class Project {
 	private int id;
 	@OneToMany(mappedBy = "project")
 	private List<ProjectNumber> projectNumbers = new ArrayList<>();
-	@OneToOne
+	@OneToOne 
 	private ProjectInfo projectInfo;
 
-	private LocalDateTime gaElectPlan;
-	private LocalDateTime gaElectActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaElectPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaElectActual;
 	@ManyToOne
 	private User gaElectDesigner;
 	
-	private LocalDateTime gaMechPlan;
-	private LocalDateTime gaMechActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaMechPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaMechActual;
 	@ManyToOne
 	private User gaMechDesigner;
 	
-	private LocalDateTime gaControlPlan;
-	private LocalDateTime gaControlActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaControlPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaControlActual;
 	@ManyToOne
 	private User gaControlerDesigner;
 	
-	private LocalDateTime gaDeadlinePlan;
-	private LocalDateTime gaDeadlineActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaDeadlinePlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate gaDeadlineActual;
 	@Transient
-	@Getter
+	@Setter(AccessLevel.PRIVATE)
 	private User gaDeadlineDesigner;
 	
-	private LocalDateTime approvalPlan;
-	private LocalDateTime approvalActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate approvalPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate approvalActual;
 	
-	private LocalDateTime bomElectPlan;
-	private LocalDateTime bomElectActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomElectPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomElectActual;
 	@ManyToOne
 	private User bomElectDesigner;
-	
-	private LocalDateTime bomWindingPlan;
-	private LocalDateTime bomWindingActual;
-	@ManyToOne
-	private User bomWindingDesigner;
     
-	private LocalDateTime bomMechPlan;
-	private LocalDateTime bomMechActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomMechPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomMechActual;
 	@ManyToOne
 	private User bomMechDesigner;
 	
-	private LocalDateTime bomControlPlan;
-	private LocalDateTime bomControlActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomControlPlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomControlActual;
 	@ManyToOne
 	private User bomControlDesigner;
 	
-	private LocalDateTime bomDeadlinePlan;
-	private LocalDateTime bomDeadlineActual;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomDeadlinePlan;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	private LocalDate bomDeadlineActual;
 	@Transient
-	@Getter
+	@Setter(AccessLevel.PRIVATE)
 	private User bomDeadlineDesigner;
 	
 	@Enumerated(EnumType.STRING)
 	private Statuses status;
 	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDateTime createdDate;
 	@ManyToOne
 	private User creator;
 	
-	public Project() {
-		gaDeadlineDesigner = gaMechDesigner;
-		bomDeadlineDesigner = bomMechDesigner;
+	public Project() {	}
+	
+	public User getGaDeadlineDesigner(){
+		return gaDeadlineDesigner = gaMechDesigner;
+	}
+	public User getBomDeadlineDesigner(){
+		return bomDeadlineDesigner = bomMechDesigner;
 	}
 }

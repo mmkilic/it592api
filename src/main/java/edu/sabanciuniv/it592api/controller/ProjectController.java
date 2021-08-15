@@ -22,34 +22,39 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 	
+	
+	@PostMapping("/prj")
+	public boolean addProject(@RequestBody Project project) {
+		
+		return projectService.save(project);
+	}
+	
+	@DeleteMapping("/prj/{projectId}")
+	public boolean deleteProject(@PathVariable int projectId) {
+		
+		return projectService.delete(projectId);
+	}
+	
 	@GetMapping("/prj")
 	public List<Project> getProjectAll() {
 		
 		return projectService.findAll();
 	}
-	
 	@GetMapping("/prj/{projectId}")
 	public Project getProjectWithId(@PathVariable int projectId) {
 		
-		return null;
+		return projectService.findById(projectId);
 	}
-	
-	@PostMapping("/prj")
-	public Project addProject(@RequestBody Project theProject) {
+	@GetMapping("/prj/nbr/{prjNumId}")
+	public Project getProjectWithProjectNumber(@PathVariable int prjNumId) {
 		
-		return null;
+		return projectService.findByProjectNumber(prjNumId);
 	}
 	
 	@PutMapping("/prj")
-	public Project updateProject(@RequestBody Project theProject) {
+	public boolean updateProject(@RequestBody Project project) {
 		
-		return null;
-	}
-	
-	@DeleteMapping("/prj/{projectId}")
-	public Project deleteProject(@PathVariable int projectId) {
-		
-		return null;
+		return projectService.update(project);
 	}
 	
 }

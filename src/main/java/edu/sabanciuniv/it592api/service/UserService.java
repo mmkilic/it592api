@@ -16,11 +16,6 @@ public class UserService implements IService<User>{
 	
 	
 	@Override
-	public boolean add(User user) {
-		return userRepo.add(user);
-	}
-	
-	@Override
 	public boolean delete(int prjId) {
 		return userRepo.delete(prjId);
 	}
@@ -32,6 +27,11 @@ public class UserService implements IService<User>{
 	@Override
 	public User findById(int id) {
 		return userRepo.findById(id);
+	}
+	
+	@Override
+	public boolean save(User user) {
+		return userRepo.save(user);
 	}
 	
 	@Override

@@ -11,10 +11,10 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import edu.sabanciuniv.it592api.entity.User;
+import edu.sabanciuniv.it592api.entity.ProjectNumber;
 
 @Repository
-public class UserRepository implements IRepository<User>{
+public class ProjectNumberRepository implements IRepository<ProjectNumber>{
 	
 	@Autowired
 	private EntityManager entityManager;
@@ -22,11 +22,11 @@ public class UserRepository implements IRepository<User>{
 	
 	@Override
 	@Transactional
-	public boolean delete(int userId) {
+	public boolean delete(int prjNbrId) {
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
 			Query q = currentSession.createQuery("delete from User u where u.id=:id");
-			q.setParameter("id", userId);
+			q.setParameter("id", prjNbrId);
 			q.executeUpdate();
 		} catch (Exception e) {
 			return false;
@@ -35,24 +35,24 @@ public class UserRepository implements IRepository<User>{
 	}
 	
 	@Override
-	public List<User> findAll() {
-		return entityManager.createQuery("Select u from User u", User.class).getResultList();
+	public List<ProjectNumber> findAll() {
+		return entityManager.createQuery("Select pn from ProjectNumber pn", ProjectNumber.class).getResultList();
 	}
 	@Override
-	public User findById(int id) {
-		return entityManager.find(User.class, id);
+	public ProjectNumber findById(int id) {
+		return entityManager.find(ProjectNumber.class, id);
 	}
-	public User findBySesa(String sesa) {
-		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.sesa=?1", User.class);
-		return query.setParameter(1, sesa).getResultList().get(0);
+	public List<ProjectNumber> findByMainProject(int mainPrjId) {
+		TypedQuery<ProjectNumber> query = entityManager.createQuery("SELECT pn from ProjectNumber pn where pn.mainProject.id=?1", ProjectNumber.class);
+		return query.setParameter(1, mainPrjId).getResultList();
 	}
 	
 	@Override
 	@Transactional
-	public boolean save(User user) {
+	public boolean save(ProjectNumber prjNbr) {
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
-			currentSession.save(user);
+			currentSession.save(prjNbr);
 		} catch (Exception e) {
 			return false;
 		}
@@ -61,12 +61,12 @@ public class UserRepository implements IRepository<User>{
 	
 	@Override
 	@Transactional
-	public boolean update(User user) {
-		if(user.getId() == 0)
+	public boolean update(ProjectNumber prjNbr) {
+		if(prjNbr.getId() == 0)
 			return false;
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
-			currentSession.update(user);
+			currentSession.update(prjNbr);
 		} catch (Exception e) {
 			return false;
 		}

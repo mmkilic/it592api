@@ -26,7 +26,7 @@ public class UserController {
 	@PostMapping("/user")
 	public boolean addUser(@RequestBody User theUser) {
 		theUser.setId(0);
-		return userService.add(theUser);
+		return userService.save(theUser);
 	}
 	
 	@DeleteMapping("/user/{userId}")

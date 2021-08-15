@@ -9,9 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -28,11 +31,13 @@ public class ProjectNumber {
 	@Column(unique=true)
 	private int number;
 	
+	@ManyToOne(cascade={CascadeType.ALL})
+	@JoinColumn(name="main_project_id")
+	private ProjectNumber mainProject;
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "mainProject")
 	private Set<ProjectNumber> subProjects = new HashSet<>();
-	
-	@ManyToOne(cascade={CascadeType.ALL})
-	private ProjectNumber mainProject;
 	
 	@ManyToOne
 	private Project project;
