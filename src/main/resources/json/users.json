@@ -1,0 +1,44 @@
+[
+	{
+		"sesa": "SESA428289",
+		"department" : "ENGINEERING",
+		"email": "sesa428289@se.com",
+		"firstName": "Mehmet",
+		"lastName": "KILIC",
+		"password": "12345",
+		"role": "MANAGER"
+	},
+	{
+		"sesa": "SESA428288",
+		"department" : "ENGINEERING",
+		"email": "sesa428288@se.com",
+		"firstName": "Incinur",
+		"lastName": "ASLAN",
+		"password": "12345",
+		"role": "DESIGNER",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"sesa": "SESA428287",
+		"department" : "PROJECT",
+		"email": "sesa428287@se.com",
+		"firstName": "Merve",
+		"lastName": "MADEN",
+		"password": "12345",
+		"role": "OTHER",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"department" : "ENGINEERING",
+		"email": "SESA400100@se.com",
+		"firstName": "Berk",
+		"lastName": "Gökçen",
+		"password": "12345",
+		"role": "MANAGER",
+		"sesa": "SESA400100"
+	}
+]

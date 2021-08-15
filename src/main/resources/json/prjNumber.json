@@ -1,0 +1,29 @@
+[
+	{
+		"number" : "282100"
+	},
+	{
+		"number" : "282101",
+		"mainProject": {
+			"number" : "282100"
+		}
+	},
+	{
+		"department" : "PROJECT",
+		"email": "sesa428287@se.com",
+		"firstName": "Merve",
+		"lastName": "MADEN",
+		"password": "12345",
+		"role": "OTHER",
+		"sesa": "SESA428287"
+	},
+	{
+		"department" : "ENGINEERING",
+		"email": "SESA400100@se.com",
+		"firstName": "Berk",
+		"lastName": "Gökçen",
+		"password": "12345",
+		"role": "MANAGER",
+		"sesa": "SESA400100"
+	}
+]

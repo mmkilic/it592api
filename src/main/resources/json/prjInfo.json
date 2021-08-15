@@ -1,0 +1,71 @@
+[
+	{
+		"powerOnan" : "30000",
+		"PowerOnaf" : "40000",
+		"LowVoltage" : "6000",
+		"highVoltage" : "30000",
+		"pmName" : "Ozge Cesur",
+		"projectName" : "Hydroelectric Power Plan",
+		"customerName" : "DEWA",
+		"endUserCountry" : "Dubai",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO",
+		"createDate" : "2021-06-10",
+		"drwaingReleaseDate" : "2021-08-10",
+		"invoiceDate" : "2021-12-10"
+	},
+	{
+		"powerOnan" : "30000",
+		"PowerOnaf" : "40000",
+		"LowVoltage" : "6000",
+		"highVoltage" : "30000",
+		"pmName" : "Ozge Cesur",
+		"projectName" : "Hydroelectric Power Plan",
+		"customerName" : "DEWA",
+		"endUserCountry" : "Dubai",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO",
+		"createDate" : "2021-06-10",
+		"drwaingReleaseDate" : "2021-08-10",
+		"invoiceDate" : "2021-12-10",
+		"project" : {
+			"id" : 1
+		}
+	},
+	{
+		"powerOnan" : "30000",
+		"PowerOnaf" : "40000",
+		"LowVoltage" : "6000",
+		"highVoltage" : "30000",
+		"pmName" : "Ozge Cesur",
+		"projectName" : "Hydroelectric Power Plan",
+		"customerName" : "DEWA",
+		"endUserCountry" : "Dubai",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO",
+		"createDate" : "2021-06-10",
+		"drwaingReleaseDate" : "2021-08-10",
+		"invoiceDate" : "2021-12-10",
+		"project" : {
+			"id" : 1
+		}
+	},
+	{
+		"powerOnan" : "30000",
+		"PowerOnaf" : "40000",
+		"LowVoltage" : "6000",
+		"highVoltage" : "30000",
+		"pmName" : "Ozge Cesur",
+		"projectName" : "Hydroelectric Power Plan",
+		"customerName" : "DEWA",
+		"endUserCountry" : "Dubai",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO",
+		"createDate" : "2021-06-10",
+		"drwaingReleaseDate" : "2021-08-10",
+		"invoiceDate" : "2021-12-10",
+		"project" : {
+			"id" : 1
+		}
+	}
+]
