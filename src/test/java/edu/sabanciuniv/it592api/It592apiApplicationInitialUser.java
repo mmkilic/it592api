@@ -14,7 +14,7 @@ import edu.sabanciuniv.it592api.entity.User;
 import edu.sabanciuniv.it592api.repository.UserRepository;
 
 @SpringBootTest
-class It592apiApplicationInitialUsers {
+class It592apiApplicationInitialUser {
 
 	@Autowired
 	private UserRepository userRep;
