@@ -51,8 +51,20 @@ public class UserController {
 		return userService.userLogin(sesa, password);
 	}
 	@GetMapping("/user/manager")
-	public List<User> getManagersAll() {
+	public List<User> getAllManagers() {
 		return userService.findAllManager();
+	}
+	@GetMapping("/user/pm")
+	public List<User> getAllPm() {
+		return userService.findAllPm();
+	}
+	@GetMapping("/user/electric")
+	public List<User> getAllElectic() {
+		return userService.findAllElectric();
+	}
+	@GetMapping("/user/mechanic")
+	public List<User> getAllMechanic() {
+		return userService.findAllMechanic();
 	}
 	
 	@PutMapping("/user")

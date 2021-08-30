@@ -29,10 +29,6 @@ public class UserRepository implements IRepository<User>{
 			return new User();
 		return query.getResultList().get(0);
 	}
-	public List<User> findAllManager() {
-		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.role='MANAGER'", User.class);
-		return query.getResultList();
-	}
 	
 	
 	@Override
@@ -57,6 +53,23 @@ public class UserRepository implements IRepository<User>{
 	@Override
 	public User findById(int id) {
 		return entityManager.find(User.class, id);
+	}
+	public List<User> findAllManager() {
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.role='MANAGER'", User.class);
+		return query.getResultList();
+	}
+	public List<User> findAllPm() {
+		TypedQuery<User> query = entityManager
+				.createQuery("Select u from User u where u.role='OTHER' and u.department='PROJECT'", User.class);
+		return query.getResultList();
+	}
+	public List<User> findAllElectric() {
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.role='ELECTRIC'", User.class);
+		return query.getResultList();
+	}
+	public List<User> findAllMechanic() {
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.role='MECHANIC'", User.class);
+		return query.getResultList();
 	}
 	
 	@Override

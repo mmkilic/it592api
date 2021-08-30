@@ -2,6 +2,7 @@ package edu.sabanciuniv.it592api.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,12 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import edu.sabanciuniv.it592api.enums.Statuses;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,11 +29,11 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "project_number_id")
 	private ProjectNumber projectNumber;
 	
-	@OneToOne 
+	@OneToOne(cascade = {CascadeType.ALL})
 	private ProjectInfo projectInfo;
 
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -55,14 +54,6 @@ public class Project {
 	private LocalDate gaDeadlinePlan;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate gaDeadlineActual;
-	@Transient
-	@Setter(AccessLevel.PRIVATE)
-	private User gaDeadlineDesigner;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate approvalPlan;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate approvalActual;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomElectPlan;
@@ -82,9 +73,9 @@ public class Project {
 	private LocalDate bomDeadlinePlan;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomDeadlineActual;
-	@Transient
-	@Setter(AccessLevel.PRIVATE)
-	private User bomDeadlineDesigner;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public LocalDate invoiceDate;
 	
 	@Enumerated(EnumType.STRING)
 	private Statuses status;
@@ -96,10 +87,4 @@ public class Project {
 	
 	public Project() {	}
 	
-	public User getGaDeadlineDesigner(){
-		return gaDeadlineDesigner = gaMechDesigner;
-	}
-	public User getBomDeadlineDesigner(){
-		return bomDeadlineDesigner = bomMechDesigner;
-	}
 }

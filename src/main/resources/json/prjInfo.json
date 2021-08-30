@@ -4,16 +4,11 @@
 		"lowVoltage" : "2100",
 		"highVoltage" : "33000",
 		"projectManger" : {
-			"id" : 4
+			"id" : 6
 		},
-		"projectName" : "Hydroelectric Power Plan",
 		"customerName" : "DEWA",
-		"endUserCountry" : "Dubai",
 		"productType" : "ODT",
-		"industrialModel" : "LowETO",
-		"createDate" : "2021-02-10",
-		"drwaingReleaseDate" : "2021-04-10",
-		"invoiceDate" : "2021-09-10"
+		"industrialModel" : "LowETO"
 	},
 	{
 		"powerOnan" : "30000",
@@ -21,16 +16,11 @@
 		"lowVoltage" : "6000",
 		"highVoltage" : "30000",
 		"projectManger" : {
-			"id" : 5
+			"id" : 7
 		},
-		"projectName" : "Kocaeli Termik Santral",
 		"customerName" : "TEIAS",
-		"endUserCountry" : "TURKEY",
 		"productType" : "MPT",
-		"industrialModel" : "LowETO",
-		"createDate" : "2021-01-10",
-		"drwaingReleaseDate" : "2021-02-10",
-		"invoiceDate" : "2021-06-10"
+		"industrialModel" : "LowETO"
 	},
 	{
 		"powerOnan" : "60000",
@@ -38,32 +28,22 @@
 		"lowVoltage" : "12000",
 		"highVoltage" : "52000",
 		"projectManger" : {
-			"id" : 4
+			"id" : 6
 		},
-		"projectName" : "Power Plant",
 		"customerName" : "France Electric",
-		"endUserCountry" : "France",
 		"productType" : "MPT",
-		"industrialModel" : "HighETO",
-		"createDate" : "2021-01-10",
-		"drwaingReleaseDate" : "2021-03-10",
-		"invoiceDate" : "2021-08-10"
+		"industrialModel" : "HighETO"
 	},
 	{
 		"powerOnan" : "2500",
 		"lowVoltage" : "400",
 		"highVoltage" : "22000",
 		"projectManger" : {
-			"id" : 5
+			"id" : 7
 		},
-		"projectName" : "Saudi Power",
 		"customerName" : "SEC",
-		"endUserCountry" : "Saudi Arabia",
 		"productType" : "ODT",
-		"industrialModel" : "LowETO",
-		"createDate" : "2021-01-10",
-		"drwaingReleaseDate" : "2021-02-10",
-		"invoiceDate" : "2021-04-10"
+		"industrialModel" : "LowETO"
 	},
 	{
 		"powerOnan" : "50000",
@@ -71,15 +51,10 @@
 		"lowVoltage" : "24000",
 		"highVoltage" : "110000",
 		"projectManger" : {
-			"id" : 5
+			"id" : 3
 		},
-		"projectName" : "Dewa Power",
 		"customerName" : "DEWA",
-		"endUserCountry" : "Dubai",
 		"productType" : "MPT",
-		"industrialModel" : "HighETO",
-		"createDate" : "2021-02-10",
-		"drwaingReleaseDate" : "2021-04-10",
-		"invoiceDate" : "2021-11-10"
+		"industrialModel" : "HighETO"
 	}
 ]

@@ -2,9 +2,10 @@ package edu.sabanciuniv.it592api.enums;
 
 public enum Roles {
 	NONE(0),
-	DESIGNER(1),
-	MANAGER(2),
-	OTHER(3);
+	ELECTRIC(1),
+	MECHANIC(2),
+	MANAGER(3),
+	OTHER(4);
 	
 	private final int code;
 	

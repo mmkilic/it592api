@@ -33,7 +33,7 @@
 		"firstName": "Erdi",
 		"lastName": "SENCAN",
 		"password": "12345",
-		"role": "DESIGNER",
+		"role": "MECHANIC",
 		"manager": {
 			"id": 1
 		}
@@ -45,7 +45,7 @@
 		"firstName": "Nazlı",
 		"lastName": "SERVI",
 		"password": "12345",
-		"role": "DESIGNER",
+		"role": "ELECTRIC",
 		"manager": {
 			"id": 1
 		}
@@ -81,7 +81,7 @@
 		"firstName": "Beyza",
 		"lastName": "DURSUN",
 		"password": "12345",
-		"role": "DESIGNER",
+		"role": "MECHANIC",
 		"manager": {
 			"id": 2
 		}
@@ -93,7 +93,7 @@
 		"firstName": "Ecem",
 		"lastName": "DEDE",
 		"password": "12345",
-		"role": "DESIGNER",
+		"role": "ELECTRIC",
 		"manager": {
 			"id": 2
 		}
@@ -105,7 +105,7 @@
 		"firstName": "Samet",
 		"lastName": "ÇEVİK",
 		"password": "12345",
-		"role": "DESIGNER",
+		"role": "MECHANIC",
 		"manager": {
 			"id": 2
 		}

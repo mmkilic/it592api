@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.sabanciuniv.it592api.entity.Project;
+import edu.sabanciuniv.it592api.enums.Statuses;
 import edu.sabanciuniv.it592api.service.ProjectService;
 
 @CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
@@ -27,7 +28,7 @@ public class ProjectController {
 	
 	@PostMapping("/prj")
 	public boolean addProject(@RequestBody Project project) {
-		
+		project.setStatus(Statuses.ACTIVE);
 		return projectService.save(project);
 	}
 	

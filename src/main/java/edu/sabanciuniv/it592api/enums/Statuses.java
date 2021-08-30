@@ -3,7 +3,7 @@ package edu.sabanciuniv.it592api.enums;
 public enum Statuses {
 	NONE(0),
 	ACTIVE(1),
-	ONGOING(2),
+	HOLD(2),
 	COMPLETED(3),
 	CANCELED(4);
 	

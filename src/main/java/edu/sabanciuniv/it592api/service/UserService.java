@@ -18,10 +18,6 @@ public class UserService implements IService<User>{
 	public User userLogin(String sesa, String password) {
 		return userRepo.userLogin(sesa, password);
 	}
-	public List<User> findAllManager() {
-		return userRepo.findAllManager();
-	}
-	
 	
 	@Override
 	public boolean delete(int prjId) {
@@ -35,6 +31,18 @@ public class UserService implements IService<User>{
 	@Override
 	public User findById(int id) {
 		return userRepo.findById(id);
+	}
+	public List<User> findAllManager() {
+		return userRepo.findAllManager();
+	}
+	public List<User> findAllPm() {
+		return userRepo.findAllPm();
+	}
+	public List<User> findAllElectric() {
+		return userRepo.findAllElectric();
+	}
+	public List<User> findAllMechanic() {
+		return userRepo.findAllMechanic();
 	}
 	
 	@Override
