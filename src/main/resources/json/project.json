@@ -1,6 +1,9 @@
 [
 	{
-		"ProjectInfo" : {
+		"projectNumber" : {
+			"id" : 1
+		},
+		"projectInfo" : {
 			"id" : 1
 		},
 		"gaElectPlan" : "2021-06-10",
@@ -12,11 +15,6 @@
 		"gaMechActual" : "2021-06-10",
 		"gaMechDesigner" : {
 			"id" : 4
-		},
-		"gaControlPlan" : "2021-06-10",
-		"gaControlActual" : "2021-06-10",
-		"gaControlerDesigner" : {
-			"id" : 1
 		},
 		"gaDeadlinePlan" : "2021-06-10",
 		"gaDeadlineActual" : "2021-06-10",
@@ -32,11 +30,6 @@
 		"bomMechDesigner" : {
 			"id" : 5
 		},
-		"bomControlPlan" : "2021-06-10",
-		"bomControlActual" : "2021-06-10",
-		"bomControlDesigner" : {
-			"id" : 1
-		},
 		"bomDeadlinePlan" : "2021-06-10",
 		"bomDeadlineActual" : "2021-06-10",
 		"status" : "ACTIVE",
@@ -46,7 +39,10 @@
 		}
 	},
 	{
-		"ProjectInfo" : {
+		"projectNumber" : {
+			"id" : 6
+		},
+		"projectInfo" : {
 			"id" : 2
 		},
 		"gaElectPlan" : "2021-06-10",
@@ -58,11 +54,6 @@
 		"gaMechActual" : "2021-06-10",
 		"gaMechDesigner" : {
 			"id" : 8
-		},
-		"gaControlPlan" : "2021-06-10",
-		"gaControlActual" : "2021-06-10",
-		"gaControlerDesigner" : {
-			"id" : 2
 		},
 		"gaDeadlinePlan" : "2021-06-10",
 		"gaDeadlineActual" : "2021-06-10",
@@ -78,11 +69,6 @@
 		"bomMechDesigner" : {
 			"id" : 8
 		},
-		"bomControlPlan" : "2021-06-10",
-		"bomControlActual" : "2021-06-10",
-		"bomControlDesigner" : {
-			"id" : 2
-		},
 		"bomDeadlinePlan" : "2021-06-10",
 		"bomDeadlineActual" : "2021-06-10",
 		"status" : "ACTIVE",
@@ -92,7 +78,10 @@
 		}
 	},
 	{
-		"ProjectInfo" : {
+		"projectNumber" : {
+			"id" : 11
+		},
+		"projectInfo" : {
 			"id" : 3
 		},
 		"gaElectPlan" : "2021-06-10",
@@ -105,11 +94,6 @@
 		"gaMechDesigner" : {
 			"id" : 10
 		},
-		"gaControlPlan" : "2021-06-10",
-		"gaControlActual" : "2021-06-10",
-		"gaControlerDesigner" : {
-			"id" : 2
-		},
 		"gaDeadlinePlan" : "2021-06-10",
 		"gaDeadlineActual" : "2021-06-10",
 		"approvalPlan" : "2021-06-10",
@@ -124,11 +108,6 @@
 		"bomMechDesigner" : {
 			"id" : 10
 		},
-		"bomControlPlan" : "2021-06-10",
-		"bomControlActual" : "2021-06-10",
-		"bomControlDesigner" : {
-			"id" : 2
-		},
 		"bomDeadlinePlan" : "2021-06-10",
 		"bomDeadlineActual" : "2021-06-10",
 		"status" : "ACTIVE",
@@ -138,7 +117,10 @@
 		}
 	},
 	{
-		"ProjectInfo" : {
+		"projectNumber" : {
+			"id" : 14
+		},
+		"projectInfo" : {
 			"id" : 4
 		},
 		"gaElectPlan" : "2021-06-10",
@@ -150,11 +132,6 @@
 		"gaMechActual" : "2021-06-10",
 		"gaMechDesigner" : {
 			"id" : 5
-		},
-		"gaControlPlan" : "2021-06-10",
-		"gaControlActual" : "2021-06-10",
-		"gaControlerDesigner" : {
-			"id" : 4
 		},
 		"gaDeadlinePlan" : "2021-06-10",
 		"gaDeadlineActual" : "2021-06-10",
@@ -170,11 +147,6 @@
 		"bomMechDesigner" : {
 			"id" : 4
 		},
-		"bomControlPlan" : "2021-06-10",
-		"bomControlActual" : "2021-06-10",
-		"bomControlDesigner" : {
-			"id" : 1
-		},
 		"bomDeadlinePlan" : "2021-06-10",
 		"bomDeadlineActual" : "2021-06-10",
 		"status" : "ACTIVE",
@@ -184,7 +156,10 @@
 		}
 	},
 	{
-		"ProjectInfo" : {
+		"projectNumber" : {
+			"id" : 19
+		},
+		"projectInfo" : {
 			"id" : 5
 		},
 		"gaElectPlan" : "2021-06-10",
@@ -196,11 +171,6 @@
 		"gaMechActual" : "2021-06-10",
 		"gaMechDesigner" : {
 			"id" : 5
-		},
-		"gaControlPlan" : "2021-06-10",
-		"gaControlActual" : "2021-06-10",
-		"gaControlerDesigner" : {
-			"id" : 4
 		},
 		"gaDeadlinePlan" : "2021-06-10",
 		"gaDeadlineActual" : "2021-06-10",
@@ -215,11 +185,6 @@
 		"bomMechActual" : "2021-06-10",
 		"bomMechDesigner" : {
 			"id" : 8
-		},
-		"bomControlPlan" : "2021-06-10",
-		"bomControlActual" : "2021-06-10",
-		"bomControlDesigner" : {
-			"id" : 2
 		},
 		"bomDeadlinePlan" : "2021-06-10",
 		"bomDeadlineActual" : "2021-06-10",

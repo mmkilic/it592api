@@ -20,6 +20,21 @@ public class UserRepository implements IRepository<User>{
 	private EntityManager entityManager;
 	
 	
+	public User userLogin(String sesa, String password) {
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.sesa=?1 "
+									+ "and u.password=?2", User.class);
+		query.setParameter(1, sesa.toUpperCase());
+		query.setParameter(2, password);
+		if(query.getResultList().isEmpty())
+			return new User();
+		return query.getResultList().get(0);
+	}
+	public List<User> findAllManager() {
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.role='MANAGER'", User.class);
+		return query.getResultList();
+	}
+	
+	
 	@Override
 	@Transactional
 	public boolean delete(int userId) {
@@ -36,15 +51,12 @@ public class UserRepository implements IRepository<User>{
 	
 	@Override
 	public List<User> findAll() {
-		return entityManager.createQuery("Select u from User u", User.class).getResultList();
+		Session currentSession = entityManager.unwrap(Session.class);
+		return currentSession.createQuery("Select u from User u", User.class).getResultList();
 	}
 	@Override
 	public User findById(int id) {
 		return entityManager.find(User.class, id);
-	}
-	public User findBySesa(String sesa) {
-		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.sesa=?1", User.class);
-		return query.setParameter(1, sesa).getResultList().get(0);
 	}
 	
 	@Override

@@ -16,7 +16,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -55,8 +54,9 @@ public class User {
     @OneToMany(mappedBy="manager")
     private Set<User> subordinates = new HashSet<User>();
 	
-	@OneToOne (mappedBy = "projectManger")
-	private ProjectInfo projectInfo;
+	@JsonIgnore
+	@OneToMany (mappedBy = "projectManger")
+	private List<ProjectInfo> projectInfo = new ArrayList<>();
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "gaElectDesigner")
@@ -65,19 +65,13 @@ public class User {
 	@OneToMany(mappedBy = "gaMechDesigner")
 	private List<Project> projectsGaMech = new ArrayList<>();
 	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
-	private List<Project> projectGaControler = new ArrayList<>();
-	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
+	@OneToMany(mappedBy = "bomElectDesigner")
 	private List<Project> projectBomElect = new ArrayList<>();
 	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
+	@OneToMany(mappedBy = "bomMechDesigner")
 	private List<Project> projectBomMech = new ArrayList<>();
 	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
-	private List<Project> projectBomControl = new ArrayList<>();
-	@JsonIgnore
-	@OneToMany(mappedBy = "gaControlerDesigner")
+	@OneToMany(mappedBy = "creator")
 	private List<Project> projectCreator = new ArrayList<>();
 	
 	

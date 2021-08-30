@@ -15,6 +15,14 @@ public class UserService implements IService<User>{
 	private UserRepository userRepo;
 	
 	
+	public User userLogin(String sesa, String password) {
+		return userRepo.userLogin(sesa, password);
+	}
+	public List<User> findAllManager() {
+		return userRepo.findAllManager();
+	}
+	
+	
 	@Override
 	public boolean delete(int prjId) {
 		return userRepo.delete(prjId);

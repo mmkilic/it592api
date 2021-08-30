@@ -1,9 +1,6 @@
 package edu.sabanciuniv.it592api.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,8 +8,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -32,8 +29,11 @@ public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToMany(mappedBy = "project")
-	private List<ProjectNumber> projectNumbers = new ArrayList<>();
+	
+	@OneToOne
+	@JoinColumn(name = "project_number_id")
+	private ProjectNumber projectNumber;
+	
 	@OneToOne 
 	private ProjectInfo projectInfo;
 
@@ -50,13 +50,6 @@ public class Project {
 	private LocalDate gaMechActual;
 	@ManyToOne
 	private User gaMechDesigner;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate gaControlPlan;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate gaControlActual;
-	@ManyToOne
-	private User gaControlerDesigner;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate gaDeadlinePlan;
@@ -86,13 +79,6 @@ public class Project {
 	private User bomMechDesigner;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate bomControlPlan;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate bomControlActual;
-	@ManyToOne
-	private User bomControlDesigner;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomDeadlinePlan;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomDeadlineActual;
@@ -104,7 +90,7 @@ public class Project {
 	private Statuses status;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDateTime createdDate;
+	private LocalDate createdDate;
 	@ManyToOne
 	private User creator;
 	

@@ -3,6 +3,7 @@ package edu.sabanciuniv.it592api.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.sabanciuniv.it592api.entity.User;
 import edu.sabanciuniv.it592api.service.UserService;
 
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -24,9 +26,11 @@ public class UserController {
 	
 	
 	@PostMapping("/user")
-	public boolean addUser(@RequestBody User theUser) {
-		theUser.setId(0);
-		return userService.save(theUser);
+	public boolean addUser(@RequestBody User user) {
+		user.setId(0);
+		if(user.getManager() != null && user.getManager().getId()==0)
+			user.setManager(null);
+		return userService.save(user);
 	}
 	
 	@DeleteMapping("/user/{userId}")
@@ -40,7 +44,15 @@ public class UserController {
 	}
 	@GetMapping("/user/{userId}")
 	public User getUserWithId(@PathVariable int userId) {
-		return null;
+		return userService.findById(userId);
+	}
+	@GetMapping("/user/{sesa}/{password}")
+	public User userLogin(@PathVariable String sesa, @PathVariable String password) {
+		return userService.userLogin(sesa, password);
+	}
+	@GetMapping("/user/manager")
+	public List<User> getManagersAll() {
+		return userService.findAllManager();
 	}
 	
 	@PutMapping("/user")

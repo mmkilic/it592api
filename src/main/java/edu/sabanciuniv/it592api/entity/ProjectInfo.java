@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,13 +28,16 @@ public class ProjectInfo {
     public int powerOnaf;
     public int lowVoltage;
     public int highVoltage;
-    @OneToOne
+    
+    @ManyToOne
     public User projectManger;
+    
     public String projectName;
     public String customerName;
     public String endUserCountry;
     public String productType;
     public String industrialModel;
+    
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public LocalDate createDate;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -40,6 +45,7 @@ public class ProjectInfo {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     public LocalDate invoiceDate;
     
+    @JsonIgnore
     @OneToOne (mappedBy = "projectInfo")
 	private Project project;
     
