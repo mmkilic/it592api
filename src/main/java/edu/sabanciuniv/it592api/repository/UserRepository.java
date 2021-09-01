@@ -59,8 +59,8 @@ public class UserRepository implements IRepository<User>{
 		return query.getResultList();
 	}
 	public List<User> findAllPm() {
-		TypedQuery<User> query = entityManager
-				.createQuery("Select u from User u where u.role='OTHER' and u.department='PROJECT'", User.class);
+		TypedQuery<User> query = entityManager.createQuery("Select u from User u where "
+				+ "(u.role='OTHER' or u.role='MANAGER') and u.department='PROJECT'", User.class);
 		return query.getResultList();
 	}
 	public List<User> findAllElectric() {

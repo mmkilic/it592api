@@ -34,7 +34,8 @@ public class ProjectController {
 	
 	@DeleteMapping("/prj/{projectId}")
 	public boolean deleteProject(@PathVariable int projectId) {
-		
+		if(projectId == 0)
+			return false;
 		return projectService.delete(projectId);
 	}
 	

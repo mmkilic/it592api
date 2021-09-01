@@ -1,9 +1,9 @@
 package edu.sabanciuniv.it592api.repository;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -25,9 +25,7 @@ public class ProjectNumberRepository implements IRepository<ProjectNumber>{
 	public boolean delete(int prjNbrId) {
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
-			Query q = currentSession.createQuery("delete from User u where u.id=:id");
-			q.setParameter("id", prjNbrId);
-			q.executeUpdate();
+			currentSession.delete(findById(prjNbrId));
 		} catch (Exception e) {
 			return false;
 		}
@@ -53,6 +51,19 @@ public class ProjectNumberRepository implements IRepository<ProjectNumber>{
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
 			currentSession.save(prjNbr);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Transactional
+	public boolean saveAll(Set<ProjectNumber> numbers) {
+		try {
+			Session currentSession = entityManager.unwrap(Session.class);
+			for (ProjectNumber number : numbers) {
+				currentSession.saveOrUpdate(number);
+			}
 		} catch (Exception e) {
 			return false;
 		}

@@ -32,6 +32,8 @@ public class ProjectInfoController {
 	
 	@DeleteMapping("/info/{nbrId}")
 	public boolean deletePrjNumber(@PathVariable int prjInfoId) {
+		if(prjInfoId == 0)
+			return false;
 		return prjInfoService.delete(prjInfoId);
 	}
 	

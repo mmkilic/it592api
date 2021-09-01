@@ -37,11 +37,11 @@ public class ProjectNumber {
 	private ProjectNumber mainProject;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "mainProject")
+	@OneToMany(mappedBy = "mainProject", orphanRemoval = true)
 	private Set<ProjectNumber> subProjects = new HashSet<>();
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "projectNumber")
+	@OneToOne(mappedBy = "projectNumber", orphanRemoval = true)
 	private Project project;
 	
 	public ProjectNumber() {	}

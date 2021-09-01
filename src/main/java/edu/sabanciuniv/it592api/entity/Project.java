@@ -33,7 +33,7 @@ public class Project {
 	@JoinColumn(name = "project_number_id")
 	private ProjectNumber projectNumber;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne(cascade = CascadeType.ALL)
 	private ProjectInfo projectInfo;
 
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

@@ -33,7 +33,7 @@ public class ProjectInfo {
     public User projectManger;
     
     @JsonIgnore
-    @OneToOne (mappedBy = "projectInfo")
+    @OneToOne (mappedBy = "projectInfo", orphanRemoval = true)
 	private Project project;
     
     public ProjectInfo() {	}

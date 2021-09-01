@@ -3,7 +3,6 @@ package edu.sabanciuniv.it592api.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -25,9 +24,7 @@ public class ProjectRepository implements IRepository<Project>{
 	public boolean delete(int prjId) {
 		try {
 			Session currentSession = entityManager.unwrap(Session.class);
-			Query q = currentSession.createQuery("delete from User p Project p.id=:id");
-			q.setParameter("id", prjId);
-			q.executeUpdate();
+			currentSession.delete(findById(prjId));
 		} catch (Exception e) {
 			return false;
 		}

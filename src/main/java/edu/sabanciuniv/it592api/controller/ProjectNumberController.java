@@ -1,6 +1,7 @@
 package edu.sabanciuniv.it592api.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,9 +31,16 @@ public class ProjectNumberController {
 		return prjNumService.save(prjNbr);
 	}
 	
+	@PostMapping("/nbrs")
+	public boolean addAllPrjNumbers(@RequestBody Set<ProjectNumber> numbers) {
+		return prjNumService.saveAll(numbers);
+	}
+	
 	@DeleteMapping("/nbr/{nbrId}")
-	public boolean deletePrjNumber(@PathVariable int prjNbrId) {
-		return prjNumService.delete(prjNbrId);
+	public boolean deletePrjNumber(@PathVariable int nbrId) {
+		if(nbrId == 0)
+			return false;
+		return prjNumService.delete(nbrId);
 	}
 	
 	@GetMapping("/nbr")

@@ -1,6 +1,7 @@
 package edu.sabanciuniv.it592api.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,14 +38,13 @@ public class ProjectNumberService implements IService<ProjectNumber>{
 		return prjNumberRepository.findByMainProject(mainPrjId);
 	}
 	
+	public boolean saveAll(Set<ProjectNumber> numbers) {
+		return prjNumberRepository.saveAll(numbers);
+	}
+	
 	@Override
 	public boolean save(ProjectNumber prjNum) {
-		try {
-			prjNumberRepository.save(prjNum);
-		} catch (Exception e) {
-			return false;
-		}
-		return true;
+		return prjNumberRepository.save(prjNum);
 	}
 	
 	@Override

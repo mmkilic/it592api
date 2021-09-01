@@ -35,6 +35,8 @@ public class UserController {
 	
 	@DeleteMapping("/user/{userId}")
 	public boolean deleteUser(@PathVariable int userId) {
+		if(userId == 0)
+			return false;
 		return userService.delete(userId);
 	}
 	
