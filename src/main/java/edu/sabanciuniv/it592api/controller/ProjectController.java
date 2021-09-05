@@ -1,5 +1,6 @@
 package edu.sabanciuniv.it592api.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.sabanciuniv.it592api.entity.Project;
+import edu.sabanciuniv.it592api.entity.User;
+import edu.sabanciuniv.it592api.enums.Roles;
 import edu.sabanciuniv.it592api.enums.Statuses;
 import edu.sabanciuniv.it592api.service.ProjectService;
+import edu.sabanciuniv.it592api.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
@@ -25,6 +29,8 @@ public class ProjectController {
 	@Autowired
 	private ProjectService projectService;
 	
+	@Autowired
+	private UserService userService;
 	
 	@PostMapping("/prj")
 	public boolean addProject(@RequestBody Project project) {
@@ -41,23 +47,40 @@ public class ProjectController {
 	
 	@GetMapping("/prj")
 	public List<Project> getProjectAll() {
-		
 		return projectService.findAll();
 	}
 	@GetMapping("/prj/{projectId}")
 	public Project getProjectWithId(@PathVariable int projectId) {
-		
 		return projectService.findById(projectId);
 	}
 	@GetMapping("/prj/nbr/{prjNumId}")
 	public Project getProjectWithProjectNumber(@PathVariable int prjNumId) {
-		
 		return projectService.findByProjectNumber(prjNumId);
+	}
+	@GetMapping("/prj/user/{userId}")
+	public List<Project> getOngoingProjectWithUserId(@PathVariable int userId) {
+		List<Project> prj = new ArrayList<Project>();
+		List<Project> userPrj = projectService.findByUser(userId);
+		if(userPrj.size() == 0) return prj;
+		
+		User user = userService.findById(userId);
+		if(user.getRole() == Roles.ELECTRIC) {
+			for (Project p : userPrj) {
+				if(p.getGaElectActual() == null || p.getBomElectActual() == null)
+					prj.add(p);
+			}
+		}
+		if(user.getRole() == Roles.MECHANIC) {
+			for (Project p : userPrj) {
+				if(p.getGaMechActual() == null || p.getBomMechActual() == null)
+					prj.add(p);
+			}
+		}
+		return prj;
 	}
 	
 	@PutMapping("/prj")
 	public boolean updateProject(@RequestBody Project project) {
-		
 		return projectService.update(project);
 	}
 	

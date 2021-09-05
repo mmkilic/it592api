@@ -1,5 +1,6 @@
 package edu.sabanciuniv.it592api.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -49,11 +50,14 @@ public class ProjectRepository implements IRepository<Project>{
 		return query.setParameter(1, prjNbrId).getResultList().get(0);
 	}
 	public List<Project> findByUser(int userId) {
-		TypedQuery<Project> query = entityManager.createQuery("Select p from Project p where "
-				+ "p.gaElectDesigner.id=?1 or p.gaMechDesigner.id=?1 or"
-				+ "p.bomElectDesigner.id=?1 or"
-				+ "p.bomMechDesigner.id=?1 or", Project.class);
-		return query.setParameter(1, userId).getResultList();
+		try {
+			TypedQuery<Project> query = entityManager.createQuery("Select p from Project p where "
+					+ "p.gaElectDesigner.id=?1 or p.gaMechDesigner.id=?1 or "
+					+ "p.bomElectDesigner.id=?1 or p.bomMechDesigner.id=?1", Project.class);
+			return query.setParameter(1, userId).getResultList();
+		} catch (Exception e) {
+			return new ArrayList<Project>();
+		}
 	}
 	
 	@Override

@@ -5,7 +5,7 @@
 		"email": "SESA400100@se.com",
 		"firstName": "Mehmet",
 		"lastName": "KILIC",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "MANAGER"
 	},
 	{
@@ -14,7 +14,7 @@
 		"email": "SESA400110@se.com",
 		"firstName": "Berk",
 		"lastName": "GÖKÇEN",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "MANAGER"
 	},
 	{
@@ -23,32 +23,8 @@
 		"email": "SESA400120@se.com",
 		"firstName": "Ozge",
 		"lastName": "CESUR",
-		"password": "12345",
-		"role": "MANAGER"
-	},
-	{
-		"sesa": "SESA400101",
-		"department" : "ENGINEERING",
-		"email": "SESA400101@se.com",
-		"firstName": "Erdi",
-		"lastName": "SENCAN",
-		"password": "12345",
-		"role": "MECHANIC",
-		"manager": {
-			"id": 1
-		}
-	},
-	{
-		"sesa": "SESA400102",
-		"department" : "ENGINEERING",
-		"email": "SESA400102@se.com",
-		"firstName": "Nazlı",
-		"lastName": "SERVI",
-		"password": "12345",
-		"role": "ELECTRIC",
-		"manager": {
-			"id": 1
-		}
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "OTHER"
 	},
 	{
 		"sesa": "SESA400301",
@@ -56,7 +32,7 @@
 		"email": "SESA400301@se.com",
 		"firstName": "Yağmur",
 		"lastName": "KOPARAN",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "OTHER",
 		"manager": {
 			"id": 3
@@ -68,10 +44,22 @@
 		"email": "SESA400302@se.com",
 		"firstName": "Gizem",
 		"lastName": "KIZILHAN",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "OTHER",
 		"manager": {
 			"id": 3
+		}
+	},
+	{
+		"sesa": "SESA400101",
+		"department" : "ENGINEERING",
+		"email": "SESA400101@se.com",
+		"firstName": "Erdi",
+		"lastName": "SENCAN",
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 1
 		}
 	},
 	{
@@ -80,32 +68,68 @@
 		"email": "SESA400201@se.com",
 		"firstName": "Beyza",
 		"lastName": "DURSUN",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "MECHANIC",
 		"manager": {
 			"id": 2
 		}
 	},
-	{
+		{
 		"sesa": "SESA400202",
-		"department" : "ENGINEERING",
-		"email": "SESA400202@se.com",
-		"firstName": "Ecem",
-		"lastName": "DEDE",
-		"password": "12345",
-		"role": "ELECTRIC",
-		"manager": {
-			"id": 2
-		}
-	},
-	{
-		"sesa": "SESA400203",
 		"department" : "ENGINEERING",
 		"email": "SESA400203@se.com",
 		"firstName": "Samet",
 		"lastName": "ÇEVİK",
-		"password": "12345",
+		"password": "202CB962AC59075B964B07152D234B70",
 		"role": "MECHANIC",
+		"manager": {
+			"id": 2
+		}
+	},
+		{
+		"sesa": "SESA400203",
+		"department" : "ENGINEERING",
+		"email": "SESA400203@se.com",
+		"firstName": "Mustafa",
+		"lastName": "Kama",
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 2
+		}
+	},
+	{
+		"sesa": "SESA400102",
+		"department" : "ENGINEERING",
+		"email": "SESA400102@se.com",
+		"firstName": "Nazlı",
+		"lastName": "SERVI",
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "ELECTRIC",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"sesa": "SESA400103",
+		"department" : "ENGINEERING",
+		"email": "SESA400204@se.com",
+		"firstName": "Ecem",
+		"lastName": "DEDE",
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "ELECTRIC",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"sesa": "SESA400204",
+		"department" : "ENGINEERING",
+		"email": "SESA400204@se.com",
+		"firstName": "Oguz",
+		"lastName": "ISIK",
+		"password": "202CB962AC59075B964B07152D234B70",
+		"role": "ELECTRIC",
 		"manager": {
 			"id": 2
 		}

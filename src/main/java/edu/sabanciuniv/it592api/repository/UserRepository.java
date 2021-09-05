@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.sabanciuniv.it592api.entity.User;
+import edu.sabanciuniv.it592api.utility.HashGenerator;
 
 @Repository
 public class UserRepository implements IRepository<User>{
@@ -21,12 +22,11 @@ public class UserRepository implements IRepository<User>{
 	
 	
 	public User userLogin(String sesa, String password) {
+		password = HashGenerator.hash(password);
 		TypedQuery<User> query = entityManager.createQuery("Select u from User u where u.sesa=?1 "
 									+ "and u.password=?2", User.class);
 		query.setParameter(1, sesa.toUpperCase());
 		query.setParameter(2, password);
-		if(query.getResultList().isEmpty())
-			return new User();
 		return query.getResultList().get(0);
 	}
 	
@@ -60,7 +60,7 @@ public class UserRepository implements IRepository<User>{
 	}
 	public List<User> findAllPm() {
 		TypedQuery<User> query = entityManager.createQuery("Select u from User u where "
-				+ "(u.role='OTHER' or u.role='MANAGER') and u.department='PROJECT'", User.class);
+				+ "u.role='OTHER' and u.department='PROJECT'", User.class);
 		return query.getResultList();
 	}
 	public List<User> findAllElectric() {
@@ -76,6 +76,7 @@ public class UserRepository implements IRepository<User>{
 	@Transactional
 	public boolean save(User user) {
 		try {
+			user.setPassword(HashGenerator.hash(user.getPassword()));
 			Session currentSession = entityManager.unwrap(Session.class);
 			currentSession.save(user);
 		} catch (Exception e) {
@@ -90,6 +91,7 @@ public class UserRepository implements IRepository<User>{
 		if(user.getId() == 0)
 			return false;
 		try {
+			user.setPassword(HashGenerator.hash(user.getPassword()));
 			Session currentSession = entityManager.unwrap(Session.class);
 			currentSession.update(user);
 		} catch (Exception e) {
