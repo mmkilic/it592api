@@ -1,5 +1,6 @@
 package edu.sabanciuniv.it592api.repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +49,13 @@ public class ProjectRepository implements IRepository<Project>{
 	public Project findByProjectNumber(int prjNbrId) {
 		TypedQuery<Project> query = entityManager.createQuery("Select p from Project p where p.projectNumber.id=?1", Project.class);
 		return query.setParameter(1, prjNbrId).getResultList().get(0);
+	}
+	public List<Project> findByCreateYear(int year) {
+		TypedQuery<Project> query = entityManager.createQuery("Select p from Project p where p.createdDate>=?1"
+				+ " and p.createdDate<?2", Project.class);
+		query.setParameter(1, LocalDate.of(year, 01, 01));
+		query.setParameter(2, LocalDate.of(++year, 01, 01));
+		return query.getResultList();
 	}
 	public List<Project> findByUser(int userId) {
 		try {

@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -79,6 +80,10 @@ public class Project {
 	
 	@Enumerated(EnumType.STRING)
 	private Statuses status;
+	@Transient
+	private int expiryGa;
+	@Transient
+	private int expiryBom;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate createdDate;

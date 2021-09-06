@@ -31,6 +31,9 @@ public class ProjectService implements IService<Project>{
 	public Project findByProjectNumber(int prjNbrId) {
 		return projectRepo.findByProjectNumber(prjNbrId);
 	}
+	public List<Project> findByCreateYear(int year) {
+		return projectRepo.findByCreateYear(year);
+	}
 	public List<Project> findByUser(int userId) {
 		return projectRepo.findByUser(userId);
 	}

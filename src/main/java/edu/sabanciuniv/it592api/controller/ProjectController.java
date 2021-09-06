@@ -53,6 +53,10 @@ public class ProjectController {
 	public Project getProjectWithId(@PathVariable int projectId) {
 		return projectService.findById(projectId);
 	}
+	@GetMapping("/prj/year/{year}")
+	public List<Project> getProjectWithYear(@PathVariable int year) {
+		return projectService.findByCreateYear(year);
+	}
 	@GetMapping("/prj/nbr/{prjNumId}")
 	public Project getProjectWithProjectNumber(@PathVariable int prjNumId) {
 		return projectService.findByProjectNumber(prjNumId);
