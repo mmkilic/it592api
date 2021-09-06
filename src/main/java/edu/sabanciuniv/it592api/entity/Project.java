@@ -52,11 +52,6 @@ public class Project {
 	private User gaMechDesigner;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate gaDeadlinePlan;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate gaDeadlineActual;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomElectPlan;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate bomElectActual;
@@ -70,14 +65,7 @@ public class Project {
 	@ManyToOne
 	private User bomMechDesigner;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate bomDeadlinePlan;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate bomDeadlineActual;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    public LocalDate invoiceDate;
-	
+	@Transient
 	@Enumerated(EnumType.STRING)
 	private Statuses status;
 	@Transient

@@ -37,26 +37,30 @@ public class ProjectController {
 		project.setStatus(Statuses.ACTIVE);
 		return projectService.save(project);
 	}
-	
+	@GetMapping("/prj")
+	public List<Project> getProjectAll() {
+		return projectService.findAll();
+	}
+	@PutMapping("/prj")
+	public boolean updateProject(@RequestBody Project project) {
+		return projectService.update(project);
+	}
+	@GetMapping("/prj/{projectId}")
+	public Project getProjectWithId(@PathVariable int projectId) {
+		return projectService.findById(projectId);
+	}
 	@DeleteMapping("/prj/{projectId}")
 	public boolean deleteProject(@PathVariable int projectId) {
 		if(projectId == 0)
 			return false;
 		return projectService.delete(projectId);
 	}
-	
-	@GetMapping("/prj")
-	public List<Project> getProjectAll() {
-		return projectService.findAll();
-	}
-	@GetMapping("/prj/{projectId}")
-	public Project getProjectWithId(@PathVariable int projectId) {
-		return projectService.findById(projectId);
-	}
+
 	@GetMapping("/prj/year/{year}")
 	public List<Project> getProjectWithYear(@PathVariable int year) {
 		return projectService.findByCreateYear(year);
 	}
+	
 	@GetMapping("/prj/nbr/{prjNumId}")
 	public Project getProjectWithProjectNumber(@PathVariable int prjNumId) {
 		return projectService.findByProjectNumber(prjNumId);
@@ -82,10 +86,4 @@ public class ProjectController {
 		}
 		return prj;
 	}
-	
-	@PutMapping("/prj")
-	public boolean updateProject(@RequestBody Project project) {
-		return projectService.update(project);
-	}
-	
 }

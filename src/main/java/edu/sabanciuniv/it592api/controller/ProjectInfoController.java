@@ -29,26 +29,23 @@ public class ProjectInfoController {
 	public boolean addPrjNumber(@RequestBody ProjectInfo prjInfo) {
 		return prjInfoService.save(prjInfo);
 	}
+	@GetMapping("/info")
+	public List<ProjectInfo> getPrjNumberAll() {
+		return prjInfoService.findAll();
+	}
+	@PutMapping("/info")
+	public boolean updatePrjNumber(@RequestBody ProjectInfo prjInfo) {
+		return prjInfoService.update(prjInfo);
+	}
 	
+	@GetMapping("/info/{infoId}")
+	public ProjectInfo getPrjNumberWithId(@PathVariable int prjInfoId) {
+		return prjInfoService.findById(prjInfoId);
+	}
 	@DeleteMapping("/info/{nbrId}")
 	public boolean deletePrjNumber(@PathVariable int prjInfoId) {
 		if(prjInfoId == 0)
 			return false;
 		return prjInfoService.delete(prjInfoId);
 	}
-	
-	@GetMapping("/info")
-	public List<ProjectInfo> getPrjNumberAll() {
-		return prjInfoService.findAll();
-	}
-	@GetMapping("/info/{infoId}")
-	public ProjectInfo getPrjNumberWithId(@PathVariable int prjInfoId) {
-		return prjInfoService.findById(prjInfoId);
-	}
-	
-	@PutMapping("/info")
-	public boolean updatePrjNumber(@RequestBody ProjectInfo prjInfo) {
-		return prjInfoService.update(prjInfo);
-	}
-	
 }

@@ -30,6 +30,14 @@ public class ProjectNumberController {
 	public boolean addPrjNumber(@RequestBody ProjectNumber prjNbr) {
 		return prjNumService.save(prjNbr);
 	}
+	@GetMapping("/nbr")
+	public List<ProjectNumber> getPrjNumberAll() {
+		return prjNumService.findAll();
+	}
+	@PutMapping("/nbr")
+	public boolean updatePrjNumber(@RequestBody ProjectNumber prjNbr) {
+		return prjNumService.update(prjNbr);
+	}
 	
 	@PostMapping("/nbrs")
 	public boolean addAllPrjNumbers(@RequestBody Set<ProjectNumber> numbers) {
@@ -43,10 +51,6 @@ public class ProjectNumberController {
 		return prjNumService.delete(nbrId);
 	}
 	
-	@GetMapping("/nbr")
-	public List<ProjectNumber> getPrjNumberAll() {
-		return prjNumService.findAll();
-	}
 	@GetMapping("/nbr/prj/{nbrId}")
 	public ProjectNumber getPrjNumberWithId(@PathVariable int nbrId) {
 		return prjNumService.findById(nbrId);
@@ -55,10 +59,4 @@ public class ProjectNumberController {
 	public List<ProjectNumber> getPrjNumbersWithMainId(@PathVariable int mainPrjId) {
 		return prjNumService.findByMainProject(mainPrjId);
 	}
-	
-	@PutMapping("/nbr")
-	public boolean updatePrjNumber(@RequestBody ProjectNumber prjNbr) {
-		return prjNumService.update(prjNbr);
-	}
-	
 }

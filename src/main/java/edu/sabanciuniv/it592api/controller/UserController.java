@@ -32,7 +32,19 @@ public class UserController {
 			user.setManager(null);
 		return userService.save(user);
 	}
+	@GetMapping("/user")
+	public List<User> getUserAll() {
+		return userService.findAll();
+	}
+	@PutMapping("/user")
+	public boolean updateUser(@RequestBody User theUser) {
+		return userService.update(theUser);
+	}
 	
+	@GetMapping("/user/{userId}")
+	public User getUserWithId(@PathVariable int userId) {
+		return userService.findById(userId);
+	}
 	@DeleteMapping("/user/{userId}")
 	public boolean deleteUser(@PathVariable int userId) {
 		if(userId == 0)
@@ -40,18 +52,11 @@ public class UserController {
 		return userService.delete(userId);
 	}
 	
-	@GetMapping("/user")
-	public List<User> getUserAll() {
-		return userService.findAll();
-	}
-	@GetMapping("/user/{userId}")
-	public User getUserWithId(@PathVariable int userId) {
-		return userService.findById(userId);
-	}
 	@GetMapping("/user/{sesa}/{password}")
 	public User userLogin(@PathVariable String sesa, @PathVariable String password) {
 		return userService.userLogin(sesa, password);
 	}
+	
 	@GetMapping("/user/manager")
 	public List<User> getAllManagers() {
 		return userService.findAllManager();
@@ -68,10 +73,4 @@ public class UserController {
 	public List<User> getAllMechanic() {
 		return userService.findAllMechanic();
 	}
-	
-	@PutMapping("/user")
-	public boolean updateUser(@RequestBody User theUser) {
-		return userService.update(theUser);
-	}
-	
 }
