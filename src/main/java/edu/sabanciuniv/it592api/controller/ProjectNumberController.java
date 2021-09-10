@@ -44,17 +44,19 @@ public class ProjectNumberController {
 		return prjNumService.saveAll(numbers);
 	}
 	
+	
 	@DeleteMapping("/nbr/{nbrId}")
 	public boolean deletePrjNumber(@PathVariable int nbrId) {
 		if(nbrId == 0)
 			return false;
 		return prjNumService.delete(nbrId);
 	}
-	
-	@GetMapping("/nbr/prj/{nbrId}")
+	@GetMapping("/nbr/{nbrId}")
 	public ProjectNumber getPrjNumberWithId(@PathVariable int nbrId) {
 		return prjNumService.findById(nbrId);
 	}
+	
+	
 	@GetMapping("/nbr/sub/{mainPrjId}")
 	public List<ProjectNumber> getPrjNumbersWithMainId(@PathVariable int mainPrjId) {
 		return prjNumService.findByMainProject(mainPrjId);

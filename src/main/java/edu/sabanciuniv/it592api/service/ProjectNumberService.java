@@ -7,19 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.sabanciuniv.it592api.entity.ProjectNumber;
-import edu.sabanciuniv.it592api.repository.ProjectNumberRepository;
+import edu.sabanciuniv.it592api.repository.IProjectNumberRepository;
 
 @Service
 public class ProjectNumberService implements IService<ProjectNumber>{
 	
 	@Autowired
-	private ProjectNumberRepository prjNumberRepository;
+	private IProjectNumberRepository prjNumberRepository;
 	
 	
 	@Override
 	public boolean delete(int prjNumId) {
 		try {
-			prjNumberRepository.delete(prjNumId);
+			prjNumberRepository.deleteById(prjNumId);
 		} catch (Exception e) {
 			return false;
 		}
@@ -32,19 +32,30 @@ public class ProjectNumberService implements IService<ProjectNumber>{
 	}
 	@Override
 	public ProjectNumber findById(int id) {
-		return prjNumberRepository.findById(id);
+		return prjNumberRepository.findById(id).get();
 	}
 	public List<ProjectNumber> findByMainProject(int mainPrjId){
 		return prjNumberRepository.findByMainProject(mainPrjId);
 	}
 	
 	public boolean saveAll(Set<ProjectNumber> numbers) {
-		return prjNumberRepository.saveAll(numbers);
+		try {
+			prjNumberRepository.saveAll(numbers);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 	
 	@Override
 	public boolean save(ProjectNumber prjNum) {
-		return prjNumberRepository.save(prjNum);
+		try {
+			prjNumberRepository.save(prjNum);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 	
 	@Override
@@ -52,7 +63,7 @@ public class ProjectNumberService implements IService<ProjectNumber>{
 		try {
 			if(prjNum.getId() == 0) 
 				return false;
-			prjNumberRepository.update(prjNum);
+			prjNumberRepository.save(prjNum);
 		} catch (Exception e) {
 			return false;
 		}

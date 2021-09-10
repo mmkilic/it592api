@@ -32,7 +32,7 @@ public class ProjectNumber {
 	@Column(unique=true)
 	private int number;
 	
-	@ManyToOne(cascade={CascadeType.ALL})
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH,CascadeType.REMOVE})
 	@JoinColumn(name="main_project_id")
 	private ProjectNumber mainProject;
 	
