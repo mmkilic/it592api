@@ -18,8 +18,8 @@ import edu.sabanciuniv.it592api.entity.Project;
 import edu.sabanciuniv.it592api.entity.ProjectInfo;
 import edu.sabanciuniv.it592api.entity.ProjectNumber;
 import edu.sabanciuniv.it592api.entity.User;
+import edu.sabanciuniv.it592api.repository.IProjectNumberRepository;
 import edu.sabanciuniv.it592api.repository.ProjectInfoRepository;
-import edu.sabanciuniv.it592api.repository.ProjectNumberRepository;
 import edu.sabanciuniv.it592api.repository.ProjectRepository;
 import edu.sabanciuniv.it592api.repository.UserRepository;
 
@@ -33,7 +33,7 @@ class It592apiApplicationInitialization {
 	@Autowired
 	private ProjectInfoRepository infoRep;
 	@Autowired
-	private ProjectNumberRepository numberRep;
+	private IProjectNumberRepository numberRep;
 	@Autowired
 	private ProjectRepository prjRep;
 	
