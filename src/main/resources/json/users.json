@@ -1,0 +1,137 @@
+[
+	{
+		"companyId": "MMK400100",
+		"department" : "ENGINEERING",
+		"email": "MMK400100@mmk.com",
+		"firstName": "Mehmet",
+		"lastName": "KILIC",
+		"password": "1234",
+		"role": "MANAGER"
+	},
+	{
+		"companyId": "MMK400200",
+		"department" : "ENGINEERING",
+		"email": "MMK400200@mmk.com",
+		"firstName": "Berk",
+		"lastName": "GÖKÇEN",
+		"password": "1234",
+		"role": "MANAGER"
+	},
+	{
+		"companyId": "MMK400300",
+		"department" : "PROJECT",
+		"email": "MMK400300@mmk.com",
+		"firstName": "Ozge",
+		"lastName": "CESUR",
+		"password": "1234",
+		"role": "MANAGER"
+	},
+	{
+		"companyId": "MMK400301",
+		"department" : "PROJECT",
+		"email": "MMK400301@mmk.com",
+		"firstName": "Yağmur",
+		"lastName": "KOPARAN",
+		"password": "1234",
+		"role": "OTHER",
+		"manager": {
+			"id": 3
+		}
+	},
+	{
+		"companyId": "MMK400302",
+		"department" : "PROJECT",
+		"email": "MMK400302@mmk.com",
+		"firstName": "Gizem",
+		"lastName": "KIZILHAN",
+		"password": "1234",
+		"role": "OTHER",
+		"manager": {
+			"id": 3
+		}
+	},
+	{
+		"companyId": "MMK400101",
+		"department" : "ENGINEERING",
+		"email": "MMK400101@mmk.com",
+		"firstName": "Erdi",
+		"lastName": "SENCAN",
+		"password": "1234",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"companyId": "MMK400201",
+		"department" : "ENGINEERING",
+		"email": "MMK400201@mmk.com",
+		"firstName": "Beyza",
+		"lastName": "DURSUN",
+		"password": "1234",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 2
+		}
+	},
+		{
+		"companyId": "MMK400202",
+		"department" : "ENGINEERING",
+		"email": "MMK400203@mmk.com",
+		"firstName": "Samet",
+		"lastName": "ÇEVİK",
+		"password": "1234",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 2
+		}
+	},
+		{
+		"companyId": "MMK400203",
+		"department" : "ENGINEERING",
+		"email": "MMK400203@mmk.com",
+		"firstName": "Mustafa",
+		"lastName": "Kama",
+		"password": "1234",
+		"role": "MECHANIC",
+		"manager": {
+			"id": 2
+		}
+	},
+	{
+		"companyId": "MMK400102",
+		"department" : "ENGINEERING",
+		"email": "MMK400102@mmk.com",
+		"firstName": "Nazlı",
+		"lastName": "SERVI",
+		"password": "1234",
+		"role": "ELECTRIC",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"companyId": "MMK400103",
+		"department" : "ENGINEERING",
+		"email": "MMK400204@mmk.com",
+		"firstName": "Ecem",
+		"lastName": "DEDE",
+		"password": "1234",
+		"role": "ELECTRIC",
+		"manager": {
+			"id": 1
+		}
+	},
+	{
+		"companyId": "MMK400204",
+		"department" : "ENGINEERING",
+		"email": "MMK400204@mmk.com",
+		"firstName": "Oguz",
+		"lastName": "ISIK",
+		"password": "1234",
+		"role": "ELECTRIC",
+		"manager": {
+			"id": 2
+		}
+	}
+]

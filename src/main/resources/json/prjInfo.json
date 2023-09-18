@@ -1,0 +1,60 @@
+[
+	{
+		"powerOnan" : "5000",
+		"lowVoltage" : "2100",
+		"highVoltage" : "33000",
+		"projectManger" : {
+			"id" : 3
+		},
+		"customerName" : "DEWA",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO"
+	},
+	{
+		"powerOnan" : "30000",
+		"powerOnaf" : "40000",
+		"lowVoltage" : "6000",
+		"highVoltage" : "30000",
+		"projectManger" : {
+			"id" : 4
+		},
+		"customerName" : "TEIAS",
+		"productType" : "MPT",
+		"industrialModel" : "LowETO"
+	},
+	{
+		"powerOnan" : "60000",
+		"powerOnaf" : "80000",
+		"lowVoltage" : "12000",
+		"highVoltage" : "52000",
+		"projectManger" : {
+			"id" : 5
+		},
+		"customerName" : "France Electric",
+		"productType" : "MPT",
+		"industrialModel" : "HighETO"
+	},
+	{
+		"powerOnan" : "2500",
+		"lowVoltage" : "400",
+		"highVoltage" : "22000",
+		"projectManger" : {
+			"id" : 4
+		},
+		"customerName" : "SEC",
+		"productType" : "ODT",
+		"industrialModel" : "LowETO"
+	},
+	{
+		"powerOnan" : "50000",
+		"powerOnaf" : "60000",
+		"lowVoltage" : "24000",
+		"highVoltage" : "110000",
+		"projectManger" : {
+			"id" : 5
+		},
+		"customerName" : "DEWA",
+		"productType" : "MPT",
+		"industrialModel" : "HighETO"
+	}
+]
